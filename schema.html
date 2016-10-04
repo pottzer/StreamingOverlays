@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<script src="static/code.jquery.comjquery-3.1.1.min.js"></script>
+	
+	<script>
+	function getTimeRemaining(endtime){
+
+  		var t = endtime.split(":");
+  		var hours = t[0];
+  		var minutes = t[1];
+  		var seconds = t[2];
+  		
+  		return {
+    		'total': t,
+    		'hours': hours,
+    		'minutes': minutes,
+    		'seconds': seconds
+  		};
+	}
+
+	function initCountdown(){
+		var clock = document.getElementById("timer");
+		var timeinterval = setInterval(function(){
+			var t = getTimeRemaining('10:10:00');
+			document.getElementById("timer").innerHTML = t.hours + ':' + t.minutes + ':' + t.seconds;
+			
+			if(t.total<=0){
+				clearInterval(timeinterval);
+			} 
+		},1000);
+	}
+
+	initCountdown();
+	</script>
+
+
+	</head>
+
+	<body>
+	<div id="BODY" style="width:1920px; height:1080px; position:absolute; margin:0px; padding:0px;">
+		<div id="schedule_box" style="color:#FFFFFF; background: #000000; height:100%; width:25%; position:absolute;">
+			<h4 id="name1">HEJSAN</h4>
+		</div>
+		<div id="infobox" style="color:#FFFFFF; background: #000000; height:25%; width:75%; position:absolute; bottom: 0px; right:0;">
+			<div id="timer" style="height:10%; width:10%; color:#FFFFFF; position:absolute;">
+			</div>
+		</div>
+		<div id="cameraPlace" style="background-image: url(1920x1080.png); position:absolute; height:75%; width:75%; right:0;"></div>
+
+	</div>
+
+	</body>
+
+
+</html>
