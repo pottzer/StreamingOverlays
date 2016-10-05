@@ -1,29 +1,59 @@
 <!DOCTYPE html>
 <html>
 	<head>
+	<meta charset="UTF-8">
+
 	<script src="static/code.jquery.comjquery-3.1.1.min.js"></script>
 	
 	<script>
-	function getTimeRemaining(endtime){
+	var seconds = 0;
 
-  		var t = endtime.split(":");
-  		var hours = t[0];
-  		var minutes = t[1];
-  		var seconds = t[2];
+	var runtimeSec = 0;
+	var runtimeMin = 0;
+
+	var sMin = 0;
+	var sSec = 0;
+
+	function initTimer(min, sec){
+		seconds = seconds + (min * 60);
+		seconds = seconds + sec;
+	}
+
+	function getTimeRemaining(){
+		seconds = seconds - 1;
+
+ 		var min = Math.floor(seconds/60);
+		var sec = Math.floor(seconds%60);
   		
   		return {
-    		'total': t,
-    		'hours': hours,
-    		'minutes': minutes,
-    		'seconds': seconds
+  			'total': seconds,
+    		'minutes': min,
+    		'seconds': sec
   		};
 	}
 
-	function initCountdown(){
-		var clock = document.getElementById("timer");
+	function initCountdown(){	
+
+
 		var timeinterval = setInterval(function(){
-			var t = getTimeRemaining('10:10:00');
-			document.getElementById("timer").innerHTML = t.hours + ':' + t.minutes + ':' + t.seconds;
+			var t = getTimeRemaining();
+			var timer = document.getElementById("timer");
+			if(t.minutes < 10 && t.seconds < 10)
+			{
+				timer.innerHTML = "0"+t.minutes+":"+"0"+t.seconds;
+			}
+			else if(t.seconds < 10)
+			{
+				timer.innerHTML = t.minutes + ":" + "0"+t.seconds;
+			}
+			else if(t.minutes < 10)
+			{
+				timer.innerHTML = "0"+t.minutes + ":" + t.seconds;
+			}
+			else
+			{
+				timer.innerHTML = t.minutes + ':' + t.seconds;
+			}
 			
 			if(t.total<=0){
 				clearInterval(timeinterval);
@@ -31,10 +61,17 @@
 		},1000);
 	}
 
-	initCountdown();
+	$('#formTarget').click(function(){
+		console.log("hejsan");
+		var min = getElementById("min").value;
+		var sec = getElementById("sec").value;
+		console.log(min);
+		console.log(sec);
+		initTimer(200,20);	
+		initCountdown();
+	})
+
 	</script>
-
-
 	</head>
 
 	<body>
@@ -48,6 +85,13 @@
 		</div>
 		<div id="cameraPlace" style="background-image: url(1920x1080.png); position:absolute; height:75%; width:75%; right:0;"></div>
 
+		<div id="form" style="width:400px; height:400px; margin-top:2000px; position:absolute;">
+		<form id="formTarget" action="">
+			<input id="min" type="text"/>
+			<input id="sec" type="text"/>
+			<input id="submitTime" type="submit"> 
+		</form>
+		</div>
 	</div>
 
 	</body>
