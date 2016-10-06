@@ -9,18 +9,16 @@
 
 	function increaseSize(){
 		$(nameBox1).animate({
-			width:"700px",
+			width:"1200px",
 		},4000,function(){
-			$(name1).text(casterL);
+
 		});
 
 		$(nameBox2).animate({
-			width:"700px"
-		},4000,function(){
-			$(name2).text(casterR);
-		});
+			width:"1200px",
+		},4000);
 	}
-
+	/*
 	function decreaseSize(){
 		$(name1).text("");
 		$(name2).text("");
@@ -31,11 +29,10 @@
 			width:"0px",
 		},4000);
 	}
-
+	*/
 
 	$(document).ready(function(){ 
 		setTimeout(increaseSize, 2000);
-		setTimeout(decreaseSize, 10000);
 	});
 	</script>
 
@@ -44,13 +41,14 @@
 
 	<body>
 	<div id="BODY" style="width:1920px; height:1080px; position:absolute; margin:0px; padding:0px;">
-		<div id="nameBox1" style="color:#FFFFFF;margin-top:900px; background: #000000; height:50px; position:absolute;">
-			<h4 id="name1"></h4>
+		<div id="nameBox1" style="background-image: url(static/bildVanster.png); height:100%; position:absolute; left:0;">
 		</div>
-		<div id="nameBox2" style="color:#FFFFFF;margin-top:900px; background: #000000; height:50px; position:absolute; right:0;">
-			<h4 id="name2"></h4>
+		<div id="nameBox2" style="background-image: url(static/bildHoger.png); height:100%; position:absolute; right:0;">
 		</div>
-
+		<div id="vsText" style="background:transparent; color:#FFFFFF; height:200px; width:200px; position:absolute; left:50%; top:50%; margin-top:-100px; margin-left:-100px;">
+			<h1 style="font-size:100px; margin:0; margin-left:25px; padding:0; position:absolute; left:0;">V</h1>
+			<h1 style="font-size:100px; margin-top:90px; margin-right:25px; padding:0; position:absolute; right:0;">S</h1>
+		</div>
 	</div>
 	<!--
 	<div id="form" style="width:400px; height:400px; margin-top:2000px; position:absolute;">
