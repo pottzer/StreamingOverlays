@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<script src="static/code.jquery.comjquery-3.1.1.min.js"></script>
+	<meta charset="UTF-8">
+
+	<link rel="stylesheet" type="text/css" href="static/css/fonts.css">
+	<script src="static/script/code.jquery.comjquery-3.1.1.min.js"></script>
 	
 	<script>
 	var casterL = "Pontus Ridderström";
 	var casterR = "Pelle (RUDOLF) Andersson";
 
 	function increaseSize(){
+
+
 		$(nameBox1).animate({
 			width:"700px",
-		},4000,function(){
-			$(name1).text(casterL);
+		},3000,function(){
 		});
 
 		$(nameBox2).animate({
 			width:"700px"
-		},4000,function(){
-			$(name2).text(casterR);
+		},3000,function(){
 		});
 	}
 
@@ -26,16 +29,18 @@
 		$(name2).text("");
 		$(nameBox1).animate({
 			width:"0px",
-		},4000);
+		},2000);
 		$(nameBox2).animate({
 			width:"0px",
-		},4000);
+		},2000);
 	}
 
 
-	$(document).ready(function(){ 
+	$(document).ready(function(){
+		$(name1).text(casterL);
+		$(name2).text(casterR); 
 		setTimeout(increaseSize, 2000);
-		setTimeout(decreaseSize, 10000);
+		setTimeout(decreaseSize, 8000);
 	});
 	</script>
 
@@ -44,10 +49,10 @@
 
 	<body>
 	<div id="BODY" style="width:1920px; height:1080px; position:absolute; margin:0px; padding:0px;">
-		<div id="nameBox1" style="color:#FFFFFF;margin-top:900px; background: #000000; height:50px; position:absolute;">
+		<div id="nameBox1" style="height:0; width:0; color:#FFFFFF;margin-top:900px; background: #000000; height:50px; position:absolute;">
 			<h4 id="name1"></h4>
 		</div>
-		<div id="nameBox2" style="color:#FFFFFF;margin-top:900px; background: #000000; height:50px; position:absolute; right:0;">
+		<div id="nameBox2" style="height:0; width:0; color:#FFFFFF;margin-top:900px; background: #000000; height:50px; position:absolute; right:0;">
 			<h4 id="name2"></h4>
 		</div>
 
