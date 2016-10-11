@@ -2,3 +2,11 @@
     font-family: headerFont;
     src: url(../fonts/KlinicSlab/KlinicSlab/KlinicSlabBold.otf);
 }
+
+.text-red-border{
+	text-shadow:2px 0 0 rgba(255,0,0,0.4), -2px 0 0 rgba(255,0,0,0.4), 0 -2px 0 rgba(255,0,0,0.4), 0 2px 0 rgba(255,0,0,0.4), 1px 1px 0 rgba(255,0,0,0.4), -1px -1px 0 rgba(255,0,0,0.4), 1px -1px 0 rgba(255,0,0,0.4), -1px 1px 0 rgba(255,0,0,0.4);
+}
+
+.text-blue-border{
+	text-shadow:2px 0 0 rgba(0,0,255,0.4), -2px 0 0 rgba(0,0,255,0.4), 0 -2px 0 rgba(0,0,255,0.4), 0 2px 0 rgba(0,0,255,0.4), 1px 1px 0 rgba(0,0,255,0.4), -1px -1px 0 rgba(0,0,255,0.4), 1px -1px 0 rgba(0,0,255,0.4), -1px 1px 0 rgba(0,0,255,0.4);
+}

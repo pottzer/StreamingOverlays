@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+
+	<link rel="stylesheet" type="text/css" href="static/css/fonts.css">
+	<script src="static/script/code.jquery.comjquery-3.1.1.min.js"></script>
+	
+	<script>
+	var activeDeck1 = "warrior"; 
+	var activeDeck2 = "warlock";
+
+	var winners1 = ["druid","mage"];
+	var winners2 = ["warrior", "warlock"];
+
+	var game = "Game 2"
+
+	var team1 = "url(1920x540.png)";
+	var player1 = "Dopamine";
+	var decklist1 = ["hunter","druid","mage","priest"];
+	var ban1 = "hunter";
+	
+
+	var team2 = "url(1920x540.png)";
+	var player2 = "Pottzer";
+	var decklist2 = ["druid","warrior","warlock","rogue"];
+	var ban2 = "druid";
+	
+
+	function setStaticstuff(){
+		
+		$("#gameText").text(game);
+		
+		for (var i = 0; i < decklist1.length; i++)
+		{
+			var deck = "#deckImg1"+i;
+			if(ban1 == decklist1[i])
+			{
+				var src = "static/pictures/hearthstone/ban" + ban1 +".png";
+				$(deck).attr("src", src);
+				console.log(src);
+				continue;
+			}
+
+			for(var x = 0; x < winners1.length; x++)
+			{
+				if(winners1[x] == decklist1[i])
+				{
+					var src = "static/pictures/hearthstone/winner" + winners1[x] +".png";
+					break;
+				} 
+				var src = "static/pictures/hearthstone/" + decklist1[i] +".png";
+			}
+			$(deck).attr("src", src);
+		}
+
+		for (var i = 0; i < decklist2.length; i++)
+		{
+			var deck = "#deckImg2"+i;
+			for(var x = 0; x < winners2.length; x++)
+			{
+				if(winners1[x] == decklist1[i])
+				{
+					var src = "static/pictures/hearthstone/winner" + winners2[x] +".png";
+					break;
+				} 
+				var src = "static/pictures/hearthstone/" + decklist2[i] +".png";
+			}
+			$(deck).attr("src", src);
+		}
+
+		var src1 = "static/pictures/hearthstone/" + activeDeck1 +".png"; 
+		$("#deck1").attr("src", src1);
+
+
+		var src2 = "static/pictures/hearthstone/" + activeDeck2 +".png"; 
+		$("#deck2").attr("src", src2);
+	}
+
+
+	function increaseSize(){
+		document.getElementById("nameBox1").style.backgroundImage = team1;
+		document.getElementById("nameBox2").style.backgroundImage = team2;
+   		
+		$(nameBox1).animate({
+			top: "+=540px"
+		},2000,function(){
+		
+		});
+		
+		$(nameBox2).animate({
+			bottom: "+=540px"
+		},2000);
+	}
+
+	function moreAnimations(){
+		$(middleLine1).animate({
+			width: "+=1080px"
+		},2000);
+		$(middleLine2).animate({
+			width: "+=1080px",
+			left: "+=100%;"
+		},2000);
+
+		$(playerName1).fadeIn(2000);
+		$(playerName2).fadeIn(2000);
+		$(vsText).fadeIn(1000);
+
+	}
+	function removeAnimations(){
+		$(middleLine1).animate({
+			width: "-=1080px"
+		},2000);
+		$(middleLine2).animate({
+			width: "-=1080px",
+			left: "-=50%;"
+		},2000);
+
+		$(playerName1).fadeOut(2000);
+		$(playerName2).fadeOut(2000);
+		$(vsText).fadeOut(1000);
+	}
+	function open(){
+		$(nameBox1).animate({
+			top: "-=540px"
+		},2000);
+		$(nameBox2).animate({
+			bottom: "-=540px"
+		},2000);
+	}
+
+	$(document).ready(function(){ 
+		setStaticstuff();
+		$(vsText).hide();
+		$(playerName1).hide();
+		$(playerName1).text(player1);
+		$(playerName2).hide();
+		$(playerName2).text(player2);	
+		setTimeout(increaseSize, 2000);
+		setTimeout(moreAnimations, 4000);
+		//setTimeout(removeAnimations, 10000);
+		//setTimeout(open, 12000);
+	});
+	</script>
+	</head>
+
+	<body>
+	<div id="BODY" style="width:1920px; height:1080px; position:absolute; margin:0px; padding:0px;">
+		<div id="nameBox1" style="height:540px; width:100%; top:-540px; position:absolute;">
+			<div id="playerName1" style="text-align:center; width:800px; height:110px; font-size:90px; font-family:headerFont; position:absolute; color:#FFFFFF; background-color:rgba(0,0,0,0.6); right:50%; top:30%;">
+			</div>
+			<div id="classes" style="position:absolute; width:500px; height:500px; left:75%; margin-left:-12.5%;">
+				<img id="deck1" style="border-radius:50%; width:250px; position:absolute; left:50%; margin-left:-125px; top:10%;" src="static/pictures/hearthstone/warrior.png">
+				<div id="deckBox1" style="position:absolute; bottom:25%; right:50%; margin-right:-180px; width:360px;">
+					<img id="deckImg10" style="border-radius:50%; width:75px;">
+					<img id="deckImg11" style="border-radius:50%; width:75px; margin-left:15px;">
+					<img id="deckImg12" style="border-radius:50%; width:75px; margin-left:15px;">
+					<img id="deckImg13" style="border-radius:50%; width:75px; margin-left:15px;">				
+				</div>
+			</div>
+		</div>
+		<div id="middleLine1" style="background-color:#000; height:10px; right:50%; bottom:50%; margin-bottom:-5px;position:absolute; z-index:100;">
+		</div>
+		<div id="middleLine2" style="background-color:#000; height:10px; left:50%; bottom:50%; margin-bottom:-5px;position:absolute; z-index:150;">
+		</div>
+		<div id="nameBox2" style="height:540px; width:100%; bottom:-540px; position:absolute;">
+			<div id="playerName2" style="text-align:center; width:800px; height:110px; font-size:90px; font-family:headerFont; position:absolute; color:#FFFFFF; background-color:rgba(0,0,0,0.6); left:50%; bottom:30%;">
+			</div>
+			<div id="classes" style="position:absolute; width:500px; height:500px; right:75%; margin-right:-12.5%;">
+				<img id="deck2" style="border-radius:50%; width:250px; position:absolute; left:50%; margin-left:-125px; top:10%;" src="static/pictures/hearthstone/warrior.png">
+				<div id="deckBox2" style="position:absolute; bottom:25%; right:50%; margin-right:-180px; width:360px;">
+					<img id="deckImg20" style="border-radius:50%; width:75px;">
+					<img id="deckImg21" style="border-radius:50%; width:75px; margin-left:15px;">
+					<img id="deckImg22" style="border-radius:50%; width:75px; margin-left:15px;">
+					<img id="deckImg23" style="border-radius:50%; width:75px; margin-left:15px;">				
+				</div>
+			</div>
+		</div>
+		<div id="vsText" style="text-align:center; background:transparent; color:#FFFFFF; height:200px; width:200px; position:absolute; left:50%; top:50%; margin-top:-100px; margin-left:-100px;">
+			<h1 id="gameText" style="font-size:80px; margin:0; padding:0; position:absolute; left:0; text-shadow:3px 10px 20px #000000; font-family:headerFont;"></h1>
+		</div>
+	</div>
+	</body>
+
+
+</html>
