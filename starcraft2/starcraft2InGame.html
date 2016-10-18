@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+
+	<link rel="stylesheet" type="text/css" href="../static/css/fonts.css">
+	<script src="../static/script/code.jquery.comjquery-3.1.1.min.js"></script>
+	
+	<script>
+	
+	var sponsorPictures = ['../static/pictures/sponsorer/bildHoger.png','../static/pictures/sponsorer/bildVanster.png']
+	var current = 0;
+
+	function initCountdown(){	
+
+		var timeinterval = setInterval(function(){
+			var oldImage = $("#sponsorCarousel img");
+
+			var img = new Image();
+			img.src = sponsorPictures[current = ++current % sponsorPictures.length];
+			img.style = "width:inherit; position: absolute;";
+			
+			var newImage = $(img).hide();
+			$("#sponsorCarousel").append(img);
+
+			oldImage.stop(true).fadeOut(3000, function(){
+				$(this).remove();
+			});
+
+			newImage.fadeIn(3000);
+
+			//$("#picture").attr('src',pictures[current = ++current % pictures.length]);
+		},8000);
+	}
+
+	$(document).ready(function(){
+		initCountdown();
+	
+	});
+
+	</script>
+	</head>
+
+	<body>
+	<div id="BODY" style="width:1920px; height:1080px; position:absolute; margin:0px; padding:0px; background-image:url('../SC2Screenshot.png');">
+		<div id="schedule_box" style="background-color:rgba(0,0,0,0.5);font-family:headerFont; color:#FFFFFF; height:15%; width:15%; bottom:8%; left:15.5%; position:absolute; ">
+			<div id="sponsorCarousel" style="height:100%; width:100%; overflow:hidden; position: absolute;">
+			</div>
+		</div>
+		
+	</div>
+
+	</body>
+
+
+</html>

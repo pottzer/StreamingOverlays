@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+
+	<link rel="stylesheet" type="text/css" href="../static/css/fonts.css">
+	<script src="../static/script/code.jquery.comjquery-3.1.1.min.js"></script>
+	
+	<script>
+	var winners1 = ["druid","mage"];
+	var winners2 = ["warrior", "warlock"];
+
+	var player1 = "Dopamine";
+	var decklist1 = ["hunter","druid","mage","priest"];
+	var ban1 = "hunter";
+	
+	var player2 = "Pottzer";
+	var decklist2 = ["hunter","warrior","warlock","rogue"];
+	var ban2 = "hunter";
+
+	var picturePath =  "../static/pictures/hearthstone/";
+
+	var sponsors = ['../static/pictures/sponsorer/bildHoger.png','../static/pictures/sponsorer/bildVanster.png']
+
+
+	function setStaticstuff(){
+		
+		for (var i = 0; i < decklist1.length; i++)
+		{
+			var deck = "#deckImg1"+i;
+			if(ban1 == decklist1[i])
+			{
+				var src = picturePath +"ban" + ban1 +".png";
+				$(deck).attr("src", src);
+				continue;
+			}
+
+			for(var x = 0; x < winners1.length; x++)
+			{
+				if(winners1[x] == decklist1[i])
+				{
+					var src = picturePath + "winner" + winners1[x] +".png";
+					break;
+				} 
+				var src = picturePath + decklist1[i] +".png";
+			}
+			$(deck).attr("src", src);
+		}
+
+		for (var i = 0; i < decklist2.length; i++)
+		{
+			var deck = "#deckImg2"+i;
+			if(ban2 == decklist2[i])
+			{
+				var src = picturePath +"ban" + ban2 +".png";
+				console.log(src);
+				$(deck).attr("src", src);
+				continue;
+			}
+			for(var x = 0; x < winners2.length; x++)
+			{
+				if(winners1[x] == decklist1[i])
+				{
+					var src = picturePath + "winner" + winners2[x] +".png";
+					break;
+				} 
+				var src = picturePath + decklist2[i] +".png";
+			}
+			$(deck).attr("src", src);
+		}
+	}
+
+	var current = 0;
+	function rotatingSponsors(){	
+
+		var timeinterval = setInterval(function(){
+			var oldImage = $("#sponsorCarousel img");
+
+			var img = new Image();
+			img.src = sponsors[current = ++current % sponsors.length];
+			img.style = "width:inherit; position: absolute;";
+			
+			var newImage = $(img).hide();
+			$("#sponsorCarousel").append(img);
+
+			oldImage.stop(true).fadeOut(3000, function(){
+				$(this).remove();
+			});
+
+			newImage.fadeIn(3000);
+
+			//$("#picture").attr('src',pictures[current = ++current % pictures.length]);
+		},8000);
+	}
+
+	function animatePictureBorder(){
+		$(topBorder1).animate({
+			width: "+=50%"
+		},500);
+		
+		$(topBorder2).animate({
+			width: "+=50%",
+			left: "+=100%;"
+		},500);
+		
+		setTimeout(function(){
+			$(leftBorder).animate({
+				height: "+=100%",
+			},500);
+
+			$(rightBorder).animate({
+				height: "+=100%",
+			},500);
+		},500);
+
+		setTimeout(function(){
+			$(botBorder1).animate({
+				width: "+=50%",
+			},500);
+			$(botBorder2).animate({
+				width: "+=50%"
+			},500);
+		},1000);
+	}
+
+
+
+	$(document).ready(function(){ 
+		setStaticstuff();
+		rotatingSponsors();
+		animatePictureBorder();
+	});
+	</script>
+	</head>
+
+	<body>
+	<div id="BODY" style="width:1920px; height:1080px; position:absolute; margin:0px; padding:0px;">
+		<div style="width:450px; height:100%; position:absolute;">
+			<div id="filler1" style="width:100%; height:5%; background-color:#000;">
+			</div>
+
+			<div id="kamera1" style="position:absolute; width:100%; height:25%; background-color:#FFF; top:5%; background:transparent;">
+				
+
+
+				<div id="decks1" style="position:absolute; width:64%; height:60px; top:0; background-color:rgba(0,255,0,0.5); right:0;">
+					<img id="deckImg10" style="border-radius:50%; width:50px; margin-left:15px; margin-top:5px;">
+					<img id="deckImg11" style="border-radius:50%; width:50px; margin-left:15px; margin-top:5px;">
+					<img id="deckImg12" style="border-radius:50%; width:50px; margin-left:15px; margin-top:5px;">
+					<img id="deckImg13" style="border-radius:50%; width:50px; margin-left:15px; margin-top:5px;">
+				</div>
+			</div>
+			<div id="nameBox1" style="position:absolute; width:100%; height:6%; top:30%; background-color:#0F0; font-size:50px; font-family:headerFont; color:#000;">
+				<div id="name1" style="width:390px; height:100%; position:absolute;">Pottzer</div>
+					<div id="wonGames1" style="background-color:rgba(255,0,0,1); width:60px; height:100%; right:0; position:absolute; z-index:5; text-align:center;">
+					<text style="padding:0; margin:0; margin-bottom:15px;">5</text>
+					</div> 
+			</div>
+			<div id="filler2" style="position:absolute; width:100%; height:24%; background-color:#000; bottom:40%;">
+			</div>
+
+		
+			<div id="nameBox2" style="position:absolute; width:100%; height:6%; bottom:40%; background-color:#0F0; font-size:50px; font-family:headerFont; color:#000;">
+					<div id="name1" style="width:390px; height:100%; position:absolute;">Pottzer</div>
+					<div id="wonGames1" style="background-color:rgba(255,0,0,1); width:60px; height:100%; right:0; position:absolute; z-index:5; text-align:center;">
+					<text style="padding:0; margin:0; margin-bottom:15px;">5</text>
+					</div> 
+			</div> 
+		
+			<div id="kamera2" style="position:absolute; width:100%; height:25%; bottom:15%;">
+				<div id="topBorder1" style="height:5px; right:50%; position:absolute; background-color:rgb(255,0,0); top:0; z-index:100;"></div>
+				<div id="topBorder2" style="height:5px; left:50%; position:absolute; background-color:rgb(255,0,0); top:0; z-index:100;"></div>
+				<div id="leftBorder" style="width:5px; position:absolute; background-color:rgb(255,0,0); left:0; z-index:100;"></div>
+				<div id="rightBorder" style="width:5px; position:absolute; background-color:rgb(255,0,0); right:0; z-index:100;"></div>
+				<div id="botBorder1" style="height:5px; right:0; position:absolute; background-color:rgb(255,0,0); bottom:0; z-index:100;"></div>
+				<div id="botBorder2" style="height:5px; left:0; position:absolute; background-color:rgb(255,0,0); bottom:0; z-index:100;"></div>
+				
+				<div id="decks2" style="position:absolute; width:64%; height:60px; bottom:0; background-color:rgba(0,255,0,0.5); right:0;">
+					<img id="deckImg20" style="border-radius:50%; width:50px; margin-left:15px; margin-top:5px;">
+					<img id="deckImg21" style="border-radius:50%; width:50px; margin-left:15px; margin-top:5px;">
+					<img id="deckImg22" style="border-radius:50%; width:50px; margin-left:15px; margin-top:5px;">
+					<img id="deckImg23" style="border-radius:50%; width:50px; margin-left:15px; margin-top:5px;">
+				</div>
+			</div>
+			<div id="filler3" style="height:15%; width:100%; background-color:#000; position:absolute; bottom:0;">
+				<div id="schedule_box" style="font-family:headerFont; color:#FFFFFF; height:95%; width:100%; background-color:#000; bottom:0; position:absolute;">
+					<div id="sponsorCarousel" style="height:100%; width:100%; overflow:hidden; position: absolute; bottom:0;">
+					</div>
+				</div>
+			</div>
+	
+		</div>
+		
+	</div>
+	</body>
+
+
+</html>

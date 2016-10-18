@@ -3,17 +3,18 @@
 	<head>
 	<meta charset="UTF-8">
 
-	<link rel="stylesheet" type="text/css" href="static/css/fonts.css">
-	<script src="static/script/code.jquery.comjquery-3.1.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../static/css/fonts.css">
+	<script src="../static/script/code.jquery.comjquery-3.1.1.min.js"></script>
 	
 	<script>
-	var team1 = "url(static/pictures/bildVanster.png)";
+	var team1 = "url(../static/pictures/starcraft2/bildVanster.png)";
 	var player1 = "Dopamine";
 
-	var team2 = "url(static/pictures/bildHoger.png)";
+	var team2 = "url(../static/pictures/starcraft2/bildHoger.png)";
 	var player2 = "Pottzer";
 
 	var mapStringName = "HelvetetIHimlen";
+	var mapSrc = "../150x150.png"
 
 
 	function increaseSize(){
@@ -32,6 +33,17 @@
 			top: "+=1080px"
 		},2000);
 	}
+	function setStatics(){
+		$(map).hide();
+		$(mapName).text(mapStringName);
+		$(vsText).hide();
+		$(playerName1).hide();
+		$(playerName1).text(player1);
+		$(playerName2).hide();
+		$(playerName2).text(player2);	
+		$(mapPic).attr("src",mapSrc);
+	}
+
 
 	function moreAnimations(){
 		$(map).fadeIn(2000);
@@ -42,13 +54,7 @@
 	}
 
 	$(document).ready(function(){ 
-		$(map).hide();
-		$(mapName).text(mapStringName);
-		$(vsText).hide();
-		$(playerName1).hide();
-		$(playerName1).text(player1);
-		$(playerName2).hide();
-		$(playerName2).text(player2);	
+		setStatics();
 		setTimeout(increaseSize, 2000);
 		setTimeout(moreAnimations, 4000);
 	});
@@ -69,14 +75,14 @@
 			<h1 style="font-size:80px; margin:0; margin-left:25px; padding:0; position:absolute; left:0; text-shadow:3px 10px 20px #000000; font-family:headerFont;">V</h1>
 			<h1 style="font-size:80px; margin-top:90px; margin-right:25px; padding:0; position:absolute; right:0; text-shadow:3px 10px 20px #000000; font-family:headerFont;">S</h1>
 		</div>
-		<div id="map" style="width:150px; height:200px;position:absolute; bottom:0; text-align:center; color:#FFFFFF; left:50%; margin-left:-75px; ">
-			<div id="mapPic" style="margin:0; padding:0; position:absolute;">
-				<img style="border:4px solid #000000; margin-left:-3px;" src="150x150.png">
+		<div id="map" style="width:200px; height:250px;position:absolute; bottom:0; text-align:center; color:#FFFFFF; left:50%; margin-left:-100px; ">
+			<div style="margin:0; padding:0; position:absolute;">
+				<img id="mapPic" style=" width:200px; height:200px; border:4px solid #000000; margin-left:-3px;">
 			</div>
-			<div id="mapText" style="background-color:rgba(0,0,0,0.3); width:150px; font-size:15px; color:#FFFFFF; font-family:headerFont; position:absolute; bottom:0; margin-bottom:25px;" >
+			<div id="mapText" style="background-color:rgba(0,0,0,0.3); width:200px; font-size:15px; color:#FFFFFF; font-family:headerFont; position:absolute; bottom:0; margin-bottom:25px;" >
 				Karta
 			</div>
-			<div id="mapName" style="background-color:rgba(0,0,0,0.3); width:150px; font-size:20px; color:#FFFFFF; font-family:headerFont; position:absolute; bottom:0;" >			
+			<div id="mapName" style="background-color:rgba(0,0,0,0.3); width:200px; font-size:20px; color:#FFFFFF; font-family:headerFont; position:absolute; bottom:0;" >			
 			</div>
 		</div>
 	</div>

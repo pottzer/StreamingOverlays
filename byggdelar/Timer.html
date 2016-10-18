@@ -3,15 +3,15 @@
 	<head>
 	<meta charset="UTF-8">
 
-	<link rel="stylesheet" type="text/css" href="static/css/fonts.css">
-	<script src="static/script/code.jquery.comjquery-3.1.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../static/css/fonts.css">
+	<script src="../static/script/code.jquery.comjquery-3.1.1.min.js"></script>
 	
 	<script>
-	/*
 	var initSeconds = 30;
 	var initMinutes = 3;
-
 	var text = "Pottzer VS Rama";
+
+
 
 	var seconds = 0;
 	function initTimer(min, sec){
@@ -71,21 +71,12 @@
 		initCountdown();
 	
 	});
-	/*
-	$('#formTarget').click(function(){
-		var min = getElementById("min").value;
-		var sec = getElementById("sec").value;
-		console.log(min);
-		console.log(sec);
-		initTimer(200,20);	
-		initCountdown();
-	})
-	*/
 	</script>
 	</head>
 
 	<body>
 	<div id="BODY" style="width:1920px; height:1080px; position:absolute; margin:0px; padding:0px;">
+		<!--
 		<div id="schedule_box" style="font-family:headerFont; color:#FFFFFF; background: #000000; height:100%; width:25%; position:absolute;">
 			<div id="event_info" style="margin-top:20px;text-align: center; width:100%; height:15%;">
 				<div id="event" style="font-size:50px;">SSU Blizzcon LAN</div>
@@ -106,26 +97,17 @@
 				<div id="series3" style="font-size:30px;">Grandfinal 1</div> 
 				<div id="match3" style="font-size:30px;">Rama VS Pekka</div>
 			</div>
-		</div>
-		<div id="infobox" style="color:#FFFFFF; background: #000000; height:25%; width:75%; position:absolute; bottom: 0px; right:0;">
-			<!--
-			<div id="timerContainer" style="position:absolute;width:40%; height:100%; bottom:0; right:0;text-align: center; ">
-				<div id="timer" style="font-family:headerFont; font-size:100px; color:#FFFFFF;"></div>
-				<div id="timerText1" style="font-family:headerFont; font-size:30px; color:#FFFFFF; display:none;"></div>
-				<div id="timerText2" style="font-family:headerFont; font-size:50px; color:#FFFFFF; display:none;"></div>
+			<div id="sponsorCarousel" style="">
+
 			</div>
-			-->
 		</div>
-
-
-		<!--<div id="cameraPlace" style="background-image: url(1920x1080.png); position:absolute; height:75%; width:75%; right:0;"></div>-->
-
-		<div id="form" style="width:400px; height:400px; margin-top:2000px; position:absolute;">
-		<form id="formTarget" action="">
-			<input id="min" type="text"/>
-			<input id="sec" type="text"/>
-			<input id="submitTime" type="submit"> 
-		</form>
+		-->
+		<div id="infobox" style="color:#FFFFFF; background: #000000; height:25%; width:40%; position:absolute; bottom: 0px; right:0;">
+			<div id="timerContainer" style="position:absolute;width:100%; height:100%; bottom:0; right:0;text-align: center; color:#FFFFFF; font-family:headerFont;">
+				<div id="timer" style="font-size:100px;"></div>
+				<div id="timerText1" style="font-size:30px; display:none;"></div>
+				<div id="timerText2" style="font-size:50px; display:none;"></div>
+			</div>
 		</div>
 	</div>
 
