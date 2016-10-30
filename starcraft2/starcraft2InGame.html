@@ -11,6 +11,17 @@
 	var sponsorPictures = ['../static/pictures/sponsorer/bildHoger.png','../static/pictures/sponsorer/bildVanster.png']
 	var current = 0;
 
+	function setStatic(){
+		$(wonGames1).text(2);
+		$(race1).attr("src",src);
+		$(playerName1).text("Dopamine");
+
+		$(wonGames2).text(1);
+		$(race2).attr("src",src);
+		$(playerName2).text("Pottzer")
+
+	}
+
 	function initCountdown(){	
 
 		var timeinterval = setInterval(function(){
@@ -34,6 +45,7 @@
 	}
 
 	$(document).ready(function(){
+		setStatic()
 		initCountdown();
 	
 	});
@@ -47,7 +59,24 @@
 			<div id="sponsorCarousel" style="height:100%; width:100%; overflow:hidden; position: absolute;">
 			</div>
 		</div>
-		
+
+			<div id="playerTab1" style="position:absolute; margin-bottom:45px; height:40px; width:54%; background-color:#FFF; bottom:0; left:16%;" >
+				<div id="wonGames1" style="text-align:center; font-size:35px; font-family:headerFont; position:absolute; height:100%; width:30px; background-color:#F00;">2
+				</div>
+				<div id="raceBox1" style="position:absolute; background-color:#00F; height:40px; width:40px; margin-left:30px; ">
+					<img id="race1" style="width:100%; height:100%;"/>
+				</div>
+				<div id="playerName1" style="font-size:35px; font-family:headerFont; position:absolute; height:100%; width:200px; background-color:#0F0; margin-left:70px;">Pottzer</div>
+			</div>
+			<div id="playerTab2" style="position:absolute; height:40px; width:54%; background-color:#FFF; bottom:0; left:16%;" >
+				<div id="wonGames2" style="text-align:center; font-size:35px; font-family:headerFont; position:absolute; height:100%; width:30px; background-color:#F00;">2
+				</div>
+				<div id="raceBox2" style="position:absolute; background-color:#00F; height:40px; width:40px; margin-left:30px;">
+					<img id="race2" style="width:100%; height:100%;">
+				</div>
+				<div id="playerName2" style="font-size:35px; font-family:headerFont; position:absolute; height:100%; width:200px; background-color:#0F0; margin-left:70px;">Pottzer</div>
+			</div>		
+			
 	</div>
 
 	</body>

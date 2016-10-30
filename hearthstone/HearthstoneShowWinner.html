@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+
+	<link rel="stylesheet" type="text/css" href="../static/css/fonts.css">
+	<script src="../static/script/code.jquery.comjquery-3.1.1.min.js"></script>
+	
+	<script>
+	var winnerPlayer = "Dopamine";
+	var winnerDeck = "mage"; 
+
+	var topHalf = "url(../1920x540.png)";
+	var bottomHalf = "url(../1920x540.png)";
+	var picturePath =  "../static/pictures/hearthstone/";
+
+	var winnerText = "";
+	
+
+	function setStaticstuff(){
+
+		$(gameText).hide();
+		$(playerName1).hide();
+		$(playerName1).text(winnerPlayer);
+		$(deck2).hide();
+		var src2 = picturePath + winnerDeck + ".png";
+
+		$(deck2).attr("src", src2);
+		$(gameText).text(winnerText);
+	}
+
+	function animateBackground(){
+		document.getElementById("nameBox1").style.backgroundImage = topHalf;
+		document.getElementById("nameBox2").style.backgroundImage = bottomHalf;
+   		
+		$(nameBox1).animate({
+			top: "+=540px"
+		},2000);
+		
+		$(nameBox2).animate({
+			bottom: "+=540px"
+		},2000);
+	}
+
+	function lineAnimations(){
+		$(middleLine1).animate({
+			width: "+=1080px"
+		},1000);
+		$(middleLine2).animate({
+			width: "+=1080px",
+			left: "+=100%;"
+		},1000);
+
+		$(playerName1).fadeIn(1000);
+		$(gameText).fadeIn(1000);
+		$(deck2).fadeIn(1000)
+
+	}
+	function retractLineAnimations(){
+		$(middleLine1).animate({
+			width: "-=1080px"
+		},2000);
+		$(middleLine2).animate({
+			width: "-=1080px",
+			left: "-=50%;"
+		},2000);
+
+		$(playerName1).fadeOut(2000);
+		$(deck2).fadeOut(2000);
+		$(gameText).fadeOut(1000);
+	}
+	function openBackground(){
+		$(nameBox1).animate({
+			top: "-=540px"
+		},2000);
+		$(nameBox2).animate({
+			bottom: "-=540px"
+		},2000);
+	}
+
+	$(document).ready(function(){ 
+		setStaticstuff();
+		setTimeout(animateBackground, 2000);
+		setTimeout(lineAnimations, 4000);
+		setTimeout(retractLineAnimations, 7000);
+		setTimeout(openBackground, 9000);
+	});
+	</script>
+	</head>
+
+	<body>
+	<div id="BODY" style="width:1920px; height:1080px; position:absolute; margin:0px; padding:0px;">
+		<div id="nameBox1" style="height:540px; width:100%; top:-540px; position:absolute;">
+			<div id="playerName1" style="text-align:center; width:800px; height:110px; font-size:90px; font-family:headerFont; position:absolute; color:#FFFFFF; background-color:rgba(0,0,0,0.6); right:50%; margin-right:-400px; top:65%;">
+			</div>
+		</div>
+		<div id="middleLine1" style="background-color:#000; height:10px; right:50%; bottom:50%; margin-bottom:-5px;position:absolute; z-index:100;">
+		</div>
+		<div id="middleLine2" style="background-color:#000; height:10px; left:50%; bottom:50%; margin-bottom:-5px;position:absolute; z-index:150;">
+		</div>
+		<div id="nameBox2" style="height:540px; width:100%; bottom:-540px; position:absolute;">
+				<img id="deck2" style="border-radius:50%; width:350px; position:absolute; left:50%; margin-left:-175px; top:5%;">
+		</div>
+		<div id="winnertext" style="background:transparent; color:#FFFFFF; height:400px; width:400px; position:absolute; left:50%; top:50%; margin-top:-200px; margin-left:-200px;">
+			<h1 id="gameText" style="text-align:center;font-size:80px; margin:0; padding:0; position:absolute; left:0; text-shadow:3px 10px 20px #000000; font-family:headerFont;"></h1>
+		</div>
+	</div>
+	</body>
+
+
+</html>
